@@ -1,0 +1,76 @@
+.bf-filter-label { color: var(--filter-label-color); font: var(--filter-label-font); text-transform: var(--heading-transform); }
+.bf-visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.bf-segmented-field, .bf-combobox, .bf-date-range { position: relative; display: grid; gap: var(--filter-field-gap); min-width: 0; }
+.bf-segmented { position: relative; display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: var(--segmented-gap); padding: var(--segmented-padding); border: var(--seam-width) solid var(--segmented-border); border-radius: var(--segmented-radius); background: var(--segmented-background); }
+.bf-segmented__indicator { position: absolute; inset: var(--segmented-padding) auto var(--segmented-padding) var(--segmented-padding); width: calc((100% - (2 * var(--segmented-padding)) - ((var(--segmented-count) - 1) * var(--segmented-gap))) / var(--segmented-count)); border-radius: var(--segmented-option-radius); background: var(--segmented-selected-background); box-shadow: var(--segmented-selected-shadow); transform: translateX(var(--segmented-offset)); transition: transform var(--segmented-transition-duration) var(--ease-standard), background var(--segmented-transition-duration) var(--ease-standard); }
+.bf-segmented button { position: relative; z-index: 1; min-width: 0; min-height: max(44px, var(--segmented-option-height)); padding-inline: var(--segmented-option-padding-inline); overflow: hidden; border: 0; border-radius: var(--segmented-option-radius); background: transparent; color: var(--segmented-foreground); font: var(--segmented-font); text-overflow: ellipsis; white-space: nowrap; cursor: pointer; transition: color var(--segmented-transition-duration) var(--ease-standard); }
+.bf-segmented button[aria-checked="true"] { color: var(--segmented-selected-foreground); }
+.bf-segmented button:not([aria-checked="true"]):not(:disabled):hover { background: var(--segmented-hover-background); color: var(--text-primary); }
+.bf-segmented--accent { --segmented-selected-background: var(--segmented-accent-background); --segmented-selected-foreground: var(--segmented-accent-foreground); --segmented-selected-shadow: none; }
+.bf-segmented button:focus-visible, .bf-combobox__trigger:focus-visible, .bf-combobox__search:focus-within, .bf-date-range__control:focus-within, .bf-switch input:focus-visible + .bf-switch__track { outline: 0; box-shadow: inset 0 0 0 var(--focus-width) var(--focus-ring); }
+.bf-segmented button:disabled, .bf-segmented[aria-disabled="true"], .bf-combobox__trigger:disabled, .bf-switch:has(input:disabled), .bf-date-range__control:has(input:disabled) { color: var(--text-secondary); cursor: not-allowed; opacity: var(--disabled-opacity); }
+.bf-segmented[aria-disabled="true"], .bf-combobox__trigger:disabled, .bf-date-range__control:has(input:disabled) { background: var(--surface-hover); }
+
+.bf-switch { display: flex; min-height: var(--control-target); align-items: center; justify-content: space-between; gap: var(--space-13); cursor: pointer; }
+.bf-switch__copy { display: grid; gap: var(--space-3); color: var(--text-primary); font-size: var(--text-sm); }
+.bf-switch__copy small { color: var(--text-secondary); font-size: var(--text-xs); }
+.bf-switch input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.bf-switch__track { display: flex; width: var(--switch-width); height: var(--switch-height); flex: 0 0 auto; align-items: center; padding: var(--switch-padding); border-radius: var(--radius-pill); background: var(--switch-background); transition: background var(--motion-state-duration) var(--ease-standard); }
+.bf-switch__track span { width: var(--switch-thumb-size); height: var(--switch-thumb-size); border-radius: var(--radius-pill); background: var(--switch-thumb); box-shadow: var(--switch-thumb-shadow); transition: transform var(--motion-state-duration) var(--ease-standard); }
+.bf-switch input:checked + .bf-switch__track { background: var(--switch-checked-background); }
+.bf-switch input:checked + .bf-switch__track span { transform: translateX(var(--switch-travel)); }
+.bf-switch:hover input:not(:disabled):not(:checked) + .bf-switch__track { background: var(--switch-hover-background); }
+
+.bf-combobox__trigger { display: flex; width: 100%; height: var(--control-target); align-items: center; justify-content: space-between; gap: var(--space-13); padding-inline: var(--control-padding-inline); border: var(--seam-width) solid var(--control-border); border-radius: var(--control-radius); background: var(--surface-panel); color: var(--text-primary); font: var(--weight-regular) var(--text-sm)/var(--line-height-sm) var(--font-interface); cursor: pointer; }
+.bf-combobox__trigger .is-placeholder { color: var(--text-tertiary); }
+.bf-combobox__trigger:not(:disabled):hover { border-color: var(--combobox-trigger-hover-border); }
+.bf-combobox__trigger svg { width: var(--icon-size-inline); height: var(--icon-size-inline); }
+.bf-combobox > small, .bf-date-range > small { color: var(--text-secondary); font-size: var(--text-xs); line-height: var(--line-height-xs); }
+.bf-combobox__popover { position: absolute; z-index: var(--overlay-z); inset: calc(100% + var(--space-5)) 0 auto; overflow: hidden; border: var(--seam-width) solid var(--control-border); border-radius: var(--control-radius); background: var(--surface-panel); box-shadow: var(--overlay-shadow); }
+.bf-combobox__popover { animation: bf-popover-enter var(--motion-enter-duration) var(--ease-enter); transform-origin: top; }
+.bf-combobox__search { display: flex; height: var(--control-target); align-items: center; gap: var(--space-8); padding-inline: var(--control-padding-inline); border-bottom: var(--seam-width) solid var(--border-subtle); }
+.bf-combobox__search svg { width: var(--icon-size-inline); height: var(--icon-size-inline); color: var(--text-secondary); }
+.bf-combobox__search input { min-width: 0; flex: 1; border: 0; outline: 0; background: transparent; color: var(--text-primary); font: var(--weight-regular) var(--text-sm)/var(--line-height-sm) var(--font-interface); }
+.bf-combobox__list { max-height: var(--combobox-list-max-height); overflow-y: auto; padding: var(--space-5); }
+.bf-combobox__list button { display: grid; width: 100%; min-height: var(--combobox-option-height); grid-template-columns: minmax(0, 1fr) var(--icon-size-inline); align-items: center; gap: var(--space-8); padding-inline: var(--space-13); border: 0; border-radius: var(--radius-micro); background: transparent; color: var(--text-primary); font: var(--weight-regular) var(--text-sm)/var(--line-height-sm) var(--font-interface); text-align: left; cursor: pointer; }
+.bf-combobox__list button.is-active, .bf-combobox__list button:hover { background: var(--surface-subtle); }
+.bf-combobox__list button svg { width: var(--icon-size-inline); height: var(--icon-size-inline); color: var(--text-action); }
+.bf-combobox__list p { margin: 0; padding: var(--space-13); color: var(--text-secondary); font-size: var(--text-sm); }
+
+.bf-date-range__control { display: grid; min-height: var(--control-target); grid-template-columns: auto minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: var(--space-8); padding-inline: var(--control-padding-inline); border: var(--seam-width) solid var(--control-border); border-radius: var(--control-radius); background: var(--surface-panel); }
+.bf-date-range__icon { width: var(--icon-size-inline); height: var(--icon-size-inline); color: var(--text-secondary); stroke-width: 1.8; }
+.bf-date-range__control label { display: grid; min-width: 0; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: var(--space-8); }
+.bf-date-range__control label > span { color: var(--text-tertiary); font: var(--weight-medium) var(--text-xs)/var(--line-height-xs) var(--font-interface); }
+.bf-date-range__control input { min-width: 0; height: var(--control-target); border: 0; outline: 0; background: transparent; color: var(--text-primary); font: var(--weight-regular) var(--text-sm)/var(--line-height-sm) var(--font-interface); }
+.bf-date-range__control input::-webkit-calendar-picker-indicator { width: 0; margin: 0; opacity: 0; }
+
+@media (max-width: 620px) { .bf-segmented { grid-auto-columns: minmax(0, 1fr); } .bf-segmented button { padding-inline: var(--space-5); font-size: var(--text-xs); } .bf-date-range__control { grid-template-columns: auto 1fr; gap: var(--space-3) var(--space-8); padding-block: var(--space-5); } .bf-date-range__icon { grid-row: 1 / 3; } .bf-date-range__control > span:not(.bf-date-range__icon) { display: none; } .bf-date-range__control label { grid-column: 2; grid-template-columns: var(--space-34) minmax(0, 1fr); } }
+
+@keyframes bf-popover-enter { from { opacity: 0; transform: translateY(calc(-1 * var(--motion-distance-sm))); } }
+@media (prefers-reduced-motion: reduce) { .bf-segmented__indicator, .bf-segmented button, .bf-switch__track, .bf-switch__track span { transition-duration: .01ms; } .bf-combobox__popover { animation: none; } }
+
+.bf-calendar-field { position:relative; display:grid; min-width:0; gap:var(--filter-field-gap); }
+.bf-calendar-field>small { color:var(--text-secondary); font-size:var(--text-xs); line-height:var(--line-height-xs); }
+.bf-calendar-trigger { display:grid; width:100%; min-height:var(--control-target); grid-template-columns:var(--icon-size-inline) minmax(0,1fr) var(--icon-size-inline); align-items:center; gap:var(--space-8); padding-inline:var(--control-padding-inline); border:var(--seam-width) solid var(--control-border); border-radius:var(--control-radius); background:var(--surface-panel); color:var(--text-primary); font:var(--weight-regular) var(--text-sm)/var(--line-height-sm) var(--font-interface); text-align:left; cursor:pointer; }
+.bf-calendar-trigger:hover:not(:disabled) { border-color:var(--combobox-trigger-hover-border); }
+.bf-calendar-trigger:focus-visible { outline:0; box-shadow:inset 0 0 0 var(--focus-width) var(--focus-ring); }
+.bf-calendar-trigger:disabled { opacity:var(--disabled-opacity); cursor:not-allowed; }
+.bf-calendar-trigger svg { width:var(--icon-size-inline); height:var(--icon-size-inline); color:var(--text-secondary); }
+.bf-calendar-trigger__range { display:grid; grid-template-columns:minmax(0,1fr) auto minmax(0,1fr); gap:var(--space-8); }
+.bf-calendar-popover { z-index:var(--overlay-z); width:min(328px,calc(100vw - (2 * var(--space-13)))); padding:var(--space-13); border:var(--seam-width) solid var(--control-border); border-radius:var(--control-radius); background:var(--surface-panel); box-shadow:var(--overlay-shadow); animation:bf-popover-enter var(--motion-enter-duration) var(--ease-enter); }
+.bf-calendar__instruction { margin:0 0 var(--space-8); color:var(--text-secondary); font:var(--type-supporting); }
+.bf-calendar { display:grid; gap:var(--space-8); }
+.bf-calendar__header { display:grid; grid-template-columns:44px minmax(0,1fr) 44px; align-items:center; text-align:center; }
+.bf-calendar__header strong { font:var(--type-control); text-transform:var(--heading-transform); }
+.bf-calendar__header button,.bf-calendar__grid button { min-width:44px; min-height:44px; border:0; border-radius:var(--radius-micro); background:transparent; color:var(--text-primary); font:var(--type-body); cursor:pointer; }
+.bf-calendar__header button:hover,.bf-calendar__grid button:hover:not(:disabled) { background:var(--surface-hover); }
+.bf-calendar__header button:focus-visible,.bf-calendar__grid button:focus-visible { outline:var(--focus-width) solid var(--focus-ring); outline-offset:-2px; }
+.bf-calendar__grid { display:grid; grid-template-columns:repeat(7,minmax(0,1fr)); }
+.bf-calendar__grid [role=columnheader] { display:grid; min-height:32px; place-items:center; color:var(--text-secondary); font:var(--type-metadata); }
+.bf-calendar__grid button { min-width:0; }
+.bf-calendar__grid button[data-outside=true] { color:var(--text-tertiary); }
+.bf-calendar__grid button[data-in-range=true] { background:var(--surface-selected); }
+.bf-calendar__grid button[aria-selected=true] { border-radius:var(--radius-pill); background:var(--action-primary-gradient); color:var(--action-primary-text); }
+.bf-calendar__grid button:disabled { opacity:var(--disabled-opacity); cursor:not-allowed; }
+@media(max-width:390px) { .bf-calendar-popover { padding:var(--space-8); } .bf-calendar-trigger__range { grid-template-columns:1fr; gap:0; } .bf-calendar-trigger__range>span[aria-hidden=true] { display:none; } }
+@media(prefers-reduced-motion:reduce) { .bf-calendar-popover { animation:none; } }

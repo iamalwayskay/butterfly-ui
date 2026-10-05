@@ -1,0 +1,82 @@
+:root {
+  --surface-canvas: var(--color-white);
+  --surface-panel: var(--color-white);
+  --surface-subtle: var(--color-neutral-100);
+  --surface-hover: var(--color-neutral-150);
+  --surface-selected: var(--color-neutral-150);
+  --surface-media: var(--color-ink-950);
+  --surface-inverse: var(--color-ink-950);
+  --surface-inverse-raised: var(--color-ink-900);
+
+  --text-primary: var(--color-ink-950);
+  --text-secondary: var(--color-ink-600);
+  --text-tertiary: var(--color-ink-600);
+  --text-action: var(--color-action-start);
+  --text-inverse: var(--color-white);
+  --text-on-inverse: var(--color-white);
+  --text-on-inverse-muted: var(--color-ink-450);
+  --line-on-inverse: var(--color-ink-800);
+
+  --border-subtle: var(--color-neutral-250);
+  --border-strong: var(--color-ink-450);
+  --border-selected: var(--color-action-start);
+  --focus-ring: var(--color-action-start);
+  --action-primary-start: var(--color-action-start);
+  --action-primary-end: var(--color-action-end);
+  --action-primary-text: var(--color-white);
+  --action-primary-gradient: linear-gradient(110deg, var(--action-primary-start), var(--action-primary-end));
+  --accent-text-start: var(--color-pink-750);
+  --accent-text-end: var(--color-magenta-800);
+  --accent-text-gradient: linear-gradient(110deg, var(--accent-text-start), var(--accent-text-end));
+  --accent-inverse-gradient: var(--action-primary-gradient);
+  --shape-cut-single: polygon(0 0, calc(100% - var(--cut-13)) 0, 100% var(--cut-13), 100% 100%, 0 100%);
+  --shape-cut-dual: polygon(var(--cut-13) 0, 100% 0, 100% calc(100% - var(--cut-13)), calc(100% - var(--cut-13)) 100%, 0 100%, 0 var(--cut-13));
+  --shape-notch-label: polygon(var(--cut-13) 0, 100% 0, calc(100% - var(--cut-13)) 100%, 0 100%);
+  --heading-transform: uppercase;
+
+  --type-page: var(--weight-medium) var(--text-page)/var(--line-height-page) var(--font-display);
+  --type-section: var(--weight-medium) var(--text-section)/var(--line-height-section) var(--font-display);
+  --type-card: var(--weight-semibold) var(--text-card)/var(--line-height-card) var(--font-interface);
+  --type-control: var(--weight-semibold) var(--text-control)/var(--line-height-control) var(--font-interface);
+  --type-body: var(--weight-regular) var(--text-base)/var(--line-height-base) var(--font-body);
+  --type-supporting: var(--weight-regular) var(--text-sm)/var(--line-height-sm) var(--font-body);
+  --type-metadata: var(--weight-medium) var(--text-xs)/var(--line-height-xs) var(--font-data);
+  --type-data: var(--weight-medium) var(--text-xs)/var(--line-height-xs) var(--font-data);
+
+  --status-ready-bg: var(--color-green-100);
+  --status-ready-text: var(--color-green-700);
+  --status-review-bg: var(--color-amber-100);
+  --status-review-text: var(--color-amber-700);
+  --status-error-bg: var(--color-red-100);
+  --status-error-text: var(--color-red-700);
+}
+
+[data-font="jetbrains"] {
+  --font-human: var(--font-data);
+  --font-display: var(--font-data);
+  --font-interface: var(--font-data);
+  --font-body: var(--font-data);
+  --font-ui: var(--font-data);
+  --font-condensed: var(--font-data);
+}
+
+[data-font="archivo-narrow"] {
+  --font-human: var(--font-brand);
+  --font-display: var(--font-brand);
+  --font-interface: var(--font-brand);
+  --font-body: var(--font-brand);
+  --font-ui: var(--font-brand);
+  --font-condensed: var(--font-brand);
+  --font-data: var(--font-brand);
+}
+
+[data-ui-weight="regular"] { --weight-medium: 400; --weight-semibold: 400; --weight-bold: 400; }
+[data-ui-weight="medium"] { --weight-medium: 500; --weight-semibold: 500; --weight-bold: 500; }
+[data-casing="natural"] { --heading-transform: none; }
+[data-density="compact"] { --control-height: 44px; --control-target: 44px; --property-row-height: 52px; }
+[data-density="comfortable"] { --control-height: 48px; --control-target: 48px; --property-row-height: 60px; }
+[data-motion="reduced"] { --duration-fast: .01ms; --duration-base: .01ms; --duration-slow: .01ms; --motion-hover-duration: .01ms; --motion-state-duration: .01ms; --motion-disclosure-duration: .01ms; --motion-enter-duration: .01ms; --motion-distance-sm: 0px; }
+[data-motion="reduced"] .bf-spin,
+[data-motion="reduced"] .bf-button__spinner,
+[data-motion="reduced"] .bf-progress--indeterminate .bf-progress__bar,
+[data-motion="reduced"] .bf-skeleton::after { animation: none !important; }

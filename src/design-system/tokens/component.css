@@ -1,0 +1,210 @@
+:root {
+  --feedback-overlay: color-mix(in srgb, var(--surface-inverse) 50%, transparent);
+  --feedback-surface: var(--surface-panel);
+  --feedback-border: var(--border-strong);
+  --feedback-radius: var(--radius-8);
+  --feedback-gap: var(--space-13);
+  --feedback-padding: var(--space-21);
+  --feedback-shadow: var(--shadow-float);
+  --dropzone-border: var(--border-strong);
+  --dropzone-padding: var(--space-21);
+  --file-preview-surface: var(--surface-subtle);
+  --file-preview-size: 240px;
+  --upload-progress-gap: var(--space-13);
+  --account-switcher-width: 280px;
+  --filter-bar-gap: var(--space-13);
+  --filter-popover-surface: var(--surface-canvas);
+  --filter-popover-width: 360px;
+  --filter-popover-border: var(--border-strong);
+  --responsive-filter-width: 680px;
+  --responsive-filter-sheet-height: 94dvh;
+  --responsive-filter-picker-height: 220px;
+  --comparison-matrix-min-width: 640px;
+  --comparison-matrix-property-width: 160px;
+  --data-table-border: var(--border-subtle);
+  --data-table-padding: var(--space-13);
+  --creative-card-gap: var(--space-8);
+  --creative-card-surface: var(--surface-subtle);
+  --metric-cell-gap: var(--space-3);
+  --metric-cell-source-color: var(--text-secondary);
+  --shot-strip-gap: var(--space-8);
+  --shot-strip-selected: var(--surface-subtle);
+  --transcript-gap: var(--space-8);
+  --transcript-selected: var(--surface-subtle);
+  --activity-timeline-gap: var(--space-13);
+  --control-height: 44px;
+  --control-target: 44px;
+  --control-gap: var(--space-13);
+  --control-padding-inline: var(--space-13);
+  --pane-padding: var(--space-21);
+  --section-gap: var(--space-34);
+  --row-padding-inline: var(--space-21);
+  --seam-width: 1px;
+  --icon-size: 20px;
+  --icon-size-inline: 20px;
+  --icon-size-nav: 24px;
+  --media-stage-width: 240px;
+  --property-trailing-width: var(--space-55);
+  --disclosure-row-height: var(--space-55);
+  --radius-micro: var(--radius-5);
+  --radius-control: var(--radius-8);
+  --radius-panel: var(--radius-13);
+  --radius-dialog: var(--radius-21);
+  --control-radius: var(--radius-control);
+  --action-radius: var(--radius-pill);
+  --control-border: var(--border-strong);
+  --panel-radius: var(--radius-panel);
+  --panel-border: var(--border-subtle);
+  --media-radius: 0px;
+  --nav-width: 72px;
+  --nav-expanded-width: 240px;
+  --nav-rail-width: 72px;
+  --header-height: 64px;
+  --property-row-height: 52px;
+  --compact-pill-height: 28px;
+  --compact-pill-padding-inline: var(--space-13);
+  --focus-outline: 2px solid var(--focus-ring);
+  --focus-offset: 2px;
+  --overlay-shadow: var(--shadow-float);
+  --motion-hover-duration: var(--duration-fast);
+  --motion-state-duration: var(--duration-base);
+  --motion-disclosure-duration: var(--duration-slow);
+  --motion-enter-duration: var(--duration-fast);
+  --motion-distance-sm: var(--space-5);
+  --button-press-offset: 1px;
+
+  /* Shared component patterns */
+  --pill-height: var(--compact-pill-height);
+  --pill-padding-inline: var(--compact-pill-padding-inline);
+  --pill-gap: var(--space-8);
+  --pill-radius: var(--radius-pill);
+  --pill-font-family: var(--font-data);
+  --pill-font-size: var(--text-xs);
+  --pill-font-weight: var(--weight-medium);
+
+  /* Removable chip */
+  --chip-height: var(--pill-height);
+  --chip-padding-start: var(--pill-padding-inline);
+  --chip-padding-end: var(--space-5);
+  --chip-remove-gap: var(--space-3);
+  --chip-remove-hit-size: var(--space-21);
+  --chip-remove-icon-size: var(--space-13);
+  --chip-remove-optical-offset: .25px;
+  --chip-radius: var(--pill-radius);
+  --chip-background: var(--action-primary-gradient);
+  --chip-foreground: var(--action-primary-text);
+  --chip-font-family: var(--pill-font-family);
+  --chip-font-size: var(--pill-font-size);
+  --chip-font-weight: var(--pill-font-weight);
+  --chip-remove-hover-background: color-mix(in srgb, var(--color-ink-950) 10%, transparent);
+
+  /* Multi-select */
+  --multi-select-gap: var(--space-8);
+  --multi-select-control-gap: var(--space-8);
+  --multi-select-control-padding: var(--space-5);
+  --multi-select-value-gap: var(--space-5);
+  --multi-select-trigger-size: var(--space-34);
+  --multi-select-options-gap: var(--space-5);
+  --multi-select-options-padding: var(--space-8);
+
+  /* Button */
+  --button-height: var(--control-target);
+  --button-gap: var(--space-8);
+  --button-padding-inline: var(--control-padding-inline);
+  --button-radius: var(--action-radius);
+  --button-primary-background: var(--action-primary-gradient);
+  --button-primary-foreground: var(--action-primary-text);
+  --button-secondary-background: var(--surface-subtle);
+  --button-secondary-foreground: var(--text-primary);
+  --button-disabled-background: var(--surface-hover);
+  --button-disabled-foreground: var(--text-secondary);
+
+  /* Breadcrumb */
+  --breadcrumb-gap: var(--space-8);
+  --breadcrumb-font-family: var(--font-interface);
+  --breadcrumb-font-size: var(--text-sm);
+  --breadcrumb-line-height: var(--line-height-sm);
+
+  /* Menu */
+  --menu-trigger-gap: var(--space-8);
+  --menu-trigger-padding-inline: var(--space-13);
+  --menu-surface: var(--surface-panel);
+  --menu-hover-surface: var(--surface-subtle);
+  --menu-radius: var(--control-radius);
+
+  /* Accordion */
+  --accordion-header-height: var(--disclosure-row-height);
+  --accordion-gap: var(--space-13);
+  --accordion-padding-inline: var(--space-21);
+  --accordion-panel-padding: 0 var(--space-21) var(--space-21);
+  --accordion-divider: var(--border-subtle);
+  --accordion-collapsed-background: var(--surface-panel);
+  --accordion-collapsed-foreground: var(--text-primary);
+  --accordion-expanded-background: var(--surface-subtle);
+  --accordion-expanded-label: var(--text-action);
+  --accordion-transition-duration: var(--duration-base);
+
+  /* Property list */
+  --property-group-padding-inline: var(--space-13);
+  --property-row-padding-block: var(--space-8);
+  --property-row-padding-inline: var(--space-13);
+  --property-row-background: var(--surface-panel);
+  --property-row-hover-background: var(--surface-hover);
+  --property-row-selected-background: var(--surface-selected);
+  --property-row-selected-label: var(--text-primary);
+
+  /* Selection, date and filter controls */
+  --filter-field-gap: var(--space-8);
+  --filter-label-color: var(--text-primary);
+  --filter-label-font: var(--weight-semibold) var(--text-control)/var(--line-height-control) var(--font-interface);
+  --focus-width: 2px;
+  --disabled-opacity: 1;
+  --overlay-z: 30;
+  --segmented-gap: var(--space-3);
+  --segmented-padding: var(--space-3);
+  --segmented-border: var(--control-border);
+  --segmented-radius: var(--radius-pill);
+  --segmented-background: var(--surface-subtle);
+  --segmented-option-height: 36px;
+  --segmented-option-padding-inline: var(--space-13);
+  --segmented-option-radius: var(--radius-pill);
+  --segmented-foreground: var(--text-secondary);
+  --segmented-selected-background: var(--surface-panel);
+  --segmented-selected-foreground: var(--text-primary);
+  --segmented-selected-shadow: inset 0 0 0 var(--seam-width) var(--border-subtle);
+  --segmented-accent-background: var(--action-primary-gradient);
+  --segmented-accent-foreground: var(--action-primary-text);
+  --segmented-transition-duration: var(--motion-state-duration);
+  --segmented-hover-background: var(--surface-hover);
+  --segmented-font: var(--weight-medium) var(--text-sm)/var(--line-height-sm) var(--font-interface);
+  --switch-width: 36px;
+  --switch-height: 20px;
+  --switch-padding: 2px;
+  --switch-thumb-size: 16px;
+  --switch-travel: 16px;
+  --switch-background: var(--border-strong);
+  --switch-checked-background: var(--action-primary-gradient);
+  --switch-thumb: var(--surface-panel);
+  --switch-thumb-shadow: var(--shadow-thumb);
+  --switch-hover-background: var(--color-ink-600);
+  --combobox-list-max-height: 240px;
+  --combobox-option-height: 40px;
+  --combobox-trigger-hover-border: var(--border-strong);
+
+  /* Branded surface and geometry */
+  --feature-panel-background: var(--surface-inverse);
+  --feature-panel-foreground: var(--text-on-inverse);
+  --feature-panel-muted: var(--text-on-inverse-muted);
+  --feature-panel-border: var(--line-on-inverse);
+  --feature-panel-cut: var(--cut-21);
+  --feature-panel-inset: var(--seam-width);
+  --feature-panel-clip: polygon(0 0, calc(100% - var(--feature-panel-cut)) 0, 100% var(--feature-panel-cut), 100% 100%, 0 100%);
+  --feature-panel-padding: var(--space-34);
+  --accent-label-background: var(--accent-inverse-gradient);
+  --accent-label-foreground: var(--action-primary-text);
+  --accent-label-clip: var(--shape-notch-label);
+  --accent-label-padding: var(--space-8) var(--space-21);
+  /* Legacy catalogue aliases: both resolve to one neutral fill, never an ornamental gradient edge. */
+  --button-inverse-outline-background: var(--surface-inverse-raised);
+  --button-inverse-outline-gradient: var(--surface-inverse-raised);
+}

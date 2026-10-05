@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="540" height="540" viewBox="0 0 540 540">
+  <title>Daily ritual — square creative fixture</title>
+  <rect width="540" height="540" fill="#f5f6f5"/>
+  <circle cx="270" cy="275" r="174" fill="#d9dfdd"/>
+  <rect x="218" y="115" width="104" height="72" rx="8" fill="#111615"/>
+  <rect x="194" y="177" width="152" height="248" rx="29" fill="#ffffff" stroke="#63706d" stroke-width="2"/>
+  <path d="M225 245h90M225 338h90" stroke="#63706d"/>
+  <text x="270" y="284" text-anchor="middle" font-family="sans-serif" font-size="19" letter-spacing="3" fill="#111615">DAILY</text>
+  <text x="270" y="313" text-anchor="middle" font-family="sans-serif" font-size="19" letter-spacing="3" fill="#111615">RITUAL</text>
+</svg>

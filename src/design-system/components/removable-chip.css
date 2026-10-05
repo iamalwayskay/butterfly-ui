@@ -1,0 +1,9 @@
+.bf-removable-chip { position: relative; z-index: 0; display: inline-flex; box-sizing: border-box; height: var(--control-target); align-items: center; justify-content: center; gap: var(--chip-remove-gap); padding: 0 var(--chip-padding-end) 0 var(--chip-padding-start); border: 0; border-radius: var(--chip-radius); background: transparent; color: var(--chip-foreground); font: var(--chip-font-weight) var(--chip-font-size)/1 var(--chip-font-family); letter-spacing: var(--tracking-data); text-transform: var(--heading-transform); cursor: pointer; transition: transform var(--motion-hover-duration) var(--ease-standard); }
+.bf-removable-chip::before { position: absolute; z-index: -1; inset: calc((var(--control-target) - var(--chip-height)) / 2) 0; border: var(--seam-width) solid transparent; border-radius: var(--chip-radius); background: var(--chip-background); content: ""; transition: background-position var(--motion-state-duration) var(--ease-standard); }
+.bf-removable-chip__remove { display: grid; width: var(--chip-remove-hit-size); height: var(--chip-remove-hit-size); flex: 0 0 var(--chip-remove-hit-size); place-items: center; border-radius: var(--radius-pill); }
+.bf-removable-chip__remove svg { width: var(--chip-remove-icon-size); height: var(--chip-remove-icon-size); stroke-width: var(--icon-stroke-light); transform: translateY(var(--chip-remove-optical-offset)); }
+.bf-removable-chip:not(:disabled):hover .bf-removable-chip__remove { background: var(--chip-remove-hover-background); }
+.bf-removable-chip:not(:disabled):active { transform: translateY(var(--button-press-offset)); }
+.bf-removable-chip:focus-visible { outline: var(--focus-outline); outline-offset: var(--focus-offset); }
+.bf-removable-chip:disabled { color: var(--button-disabled-foreground); cursor: not-allowed; opacity: var(--disabled-opacity); }
+.bf-removable-chip:disabled::before { background: var(--button-disabled-background); }

@@ -1,0 +1,102 @@
+/* Shared motion language: controls 120ms, shell/dialog 180ms, drawers 240ms. */
+.bf-overlay-motion,
+.bf-dialog-motion,
+.bf-popover-motion,
+.bf-sheet-motion {
+  animation-fill-mode: both;
+}
+
+/* The document scrolls pages; only bounded overlay content owns local scroll. */
+.bf-dialog-motion,
+.bf-sheet-motion {
+  max-height: calc(100dvh - 26px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.bf-sheet-motion[data-side="left"],
+.bf-sheet-motion[data-side="right"] { max-height: 100dvh; }
+.bf-popover-motion,
+.bf-combobox__list,
+.bf-menu__content { overscroll-behavior: contain; }
+
+:where(.bf-dialog-motion, .bf-sheet-motion, .bf-popover-motion, .bf-combobox__list, .bf-menu__content) {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
+}
+:where(.bf-dialog-motion, .bf-sheet-motion, .bf-popover-motion, .bf-combobox__list, .bf-menu__content)::-webkit-scrollbar { width: 3px; height: 3px; }
+:where(.bf-dialog-motion, .bf-sheet-motion, .bf-popover-motion, .bf-combobox__list, .bf-menu__content)::-webkit-scrollbar-thumb { border-radius: var(--radius-pill); background: var(--border-strong); }
+:where(.bf-dialog-motion, .bf-sheet-motion, .bf-popover-motion, .bf-combobox__list, .bf-menu__content)::-webkit-scrollbar-button { display: none; width: 0; height: 0; }
+
+.bf-icon-tooltip { z-index: 100; max-width: calc(100vw - 26px); padding: var(--space-5) var(--space-8); border-radius: var(--radius-5); background: var(--surface-inverse); color: var(--text-on-inverse); font: var(--type-supporting); }
+
+.bf-overlay-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: inline-flex;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-control);
+  opacity: .7;
+  transition: opacity var(--duration-fast) var(--ease-standard);
+}
+.bf-overlay-close:hover,
+.bf-overlay-close:focus-visible { opacity: 1; }
+
+.bf-overlay-motion[data-state="open"] { animation: bf-overlay-in var(--duration-base) var(--ease-enter); }
+.bf-overlay-motion[data-state="closed"] { animation: bf-overlay-out var(--duration-fast) var(--ease-exit); }
+
+.bf-dialog-motion[data-state="open"] { animation: bf-dialog-in var(--duration-base) var(--ease-enter); }
+.bf-dialog-motion[data-state="closed"] { animation: bf-dialog-out var(--duration-base) var(--ease-exit); }
+
+.bf-popover-motion {
+  --bf-enter-x: 0;
+  --bf-enter-y: 0;
+}
+.bf-popover-motion[data-side="bottom"] { --bf-enter-y: calc(var(--motion-distance-sm) * -1); }
+.bf-popover-motion[data-side="top"] { --bf-enter-y: var(--motion-distance-sm); }
+.bf-popover-motion[data-side="left"] { --bf-enter-x: var(--motion-distance-sm); }
+.bf-popover-motion[data-side="right"] { --bf-enter-x: calc(var(--motion-distance-sm) * -1); }
+.bf-popover-motion[data-state="open"],
+.bf-popover-motion[data-state="instant-open"],
+.bf-popover-motion[data-state="delayed-open"] { animation: bf-popover-in var(--duration-fast) var(--ease-enter); }
+.bf-popover-motion[data-state="closed"] { animation: bf-popover-out var(--duration-fast) var(--ease-exit); }
+
+.bf-sheet-motion[data-side="right"][data-state="open"] { animation: bf-sheet-right-in var(--duration-slow) var(--ease-enter); }
+.bf-sheet-motion[data-side="right"][data-state="closed"] { animation: bf-sheet-right-out var(--duration-slow) var(--ease-exit); }
+.bf-sheet-motion[data-side="left"][data-state="open"] { animation: bf-sheet-left-in var(--duration-slow) var(--ease-enter); }
+.bf-sheet-motion[data-side="left"][data-state="closed"] { animation: bf-sheet-left-out var(--duration-slow) var(--ease-exit); }
+.bf-sheet-motion[data-side="top"][data-state="open"] { animation: bf-sheet-top-in var(--duration-slow) var(--ease-enter); }
+.bf-sheet-motion[data-side="top"][data-state="closed"] { animation: bf-sheet-top-out var(--duration-slow) var(--ease-exit); }
+.bf-sheet-motion[data-side="bottom"][data-state="open"] { animation: bf-sheet-bottom-in var(--duration-slow) var(--ease-enter); }
+.bf-sheet-motion[data-side="bottom"][data-state="closed"] { animation: bf-sheet-bottom-out var(--duration-slow) var(--ease-exit); }
+
+@keyframes bf-overlay-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes bf-overlay-out { from { opacity: 1; } to { opacity: 0; } }
+/* Dialog translate belongs to layout (including Tailwind centering), not motion. */
+@keyframes bf-dialog-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes bf-dialog-out { from { opacity: 1; } to { opacity: 0; } }
+@keyframes bf-popover-in { from { opacity: 0; translate: var(--bf-enter-x) var(--bf-enter-y); } to { opacity: 1; translate: 0 0; } }
+@keyframes bf-popover-out { from { opacity: 1; translate: 0 0; } to { opacity: 0; translate: var(--bf-enter-x) var(--bf-enter-y); } }
+@keyframes bf-sheet-right-in { from { translate: 100% 0; } to { translate: 0 0; } }
+@keyframes bf-sheet-right-out { from { translate: 0 0; } to { translate: 100% 0; } }
+@keyframes bf-sheet-left-in { from { translate: -100% 0; } to { translate: 0 0; } }
+@keyframes bf-sheet-left-out { from { translate: 0 0; } to { translate: -100% 0; } }
+@keyframes bf-sheet-top-in { from { translate: 0 -100%; } to { translate: 0 0; } }
+@keyframes bf-sheet-top-out { from { translate: 0 0; } to { translate: 0 -100%; } }
+@keyframes bf-sheet-bottom-in { from { translate: 0 100%; } to { translate: 0 0; } }
+@keyframes bf-sheet-bottom-out { from { translate: 0 0; } to { translate: 0 100%; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .bf-overlay-motion,
+  .bf-dialog-motion,
+  .bf-popover-motion,
+  .bf-sheet-motion {
+    animation: none !important;
+  }
+  .bf-overlay-close { transition: none; }
+}

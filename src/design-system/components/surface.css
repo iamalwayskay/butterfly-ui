@@ -1,0 +1,10 @@
+.bf-surface { --surface-cut-fill: var(--surface-panel); --surface-cut-border: var(--panel-border); border: var(--seam-width) solid var(--panel-border); border-radius: var(--panel-radius); background: var(--surface-panel); color: var(--text-primary); }
+.bf-surface--subtle { --surface-cut-fill: var(--surface-subtle); background: var(--surface-subtle); }
+.bf-surface--inverse { --surface-cut-fill: var(--feature-panel-background); --surface-cut-border: var(--feature-panel-border); border-color: var(--feature-panel-border); background: var(--feature-panel-background); color: var(--feature-panel-foreground); }
+.bf-surface--accent { --surface-cut-fill: var(--action-primary-gradient); --surface-cut-border: transparent; border-color: transparent; background: var(--action-primary-gradient); color: var(--action-primary-text); }
+.bf-surface--cut { position: relative; isolation: isolate; overflow: hidden; border: 0; border-radius: 0; clip-path: var(--feature-panel-clip); background: transparent; }
+.bf-surface--cut::before,
+.bf-surface--cut::after { position: absolute; z-index: -1; content: ""; clip-path: var(--feature-panel-clip); pointer-events: none; }
+.bf-surface--cut::before { inset: 0; background: var(--surface-cut-border); }
+.bf-surface--cut::after { inset: var(--feature-panel-inset); background: var(--surface-cut-fill); }
+.bf-accent-label { display: inline-flex; width: fit-content; min-height: var(--compact-pill-height); align-items: center; padding: var(--accent-label-padding); clip-path: var(--accent-label-clip); background: var(--accent-label-background); color: var(--accent-label-foreground); font: var(--weight-semibold) var(--text-control)/var(--line-height-control) var(--font-condensed); text-transform: var(--heading-transform); }

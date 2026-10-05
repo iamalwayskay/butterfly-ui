@@ -1,0 +1,28 @@
+.bf-alert-dialog-overlay { position: fixed; inset: 0; z-index: 60; background: var(--feedback-overlay); animation-fill-mode: both; }
+.bf-alert-dialog-overlay[data-state="open"] { animation: bf-overlay-in var(--duration-base) var(--ease-enter); }
+.bf-alert-dialog-overlay[data-state="closed"] { animation: bf-overlay-out var(--duration-fast) var(--ease-exit); }
+.bf-alert-dialog { position: fixed; top: 50%; left: 50%; z-index: 61; transform: translate(-50%, -50%); width: min(32rem, calc(100% - 2rem)); max-height: calc(100svh - 2rem); overflow: auto; display: grid; gap: var(--feedback-gap); padding: var(--feedback-padding); border: 1px solid var(--feedback-border); border-radius: var(--feedback-radius); background: var(--feedback-surface); color: var(--text-primary); box-shadow: var(--feedback-shadow); animation-fill-mode: both; }
+.bf-alert-dialog[data-state="open"] { animation: bf-dialog-in var(--duration-base) var(--ease-enter); }
+.bf-alert-dialog[data-state="closed"] { animation: bf-dialog-out var(--duration-base) var(--ease-exit); }
+.bf-alert-dialog h2 { font: var(--type-section); }
+.bf-alert-dialog p { font: var(--type-body); color: var(--text-secondary); }
+.bf-alert-dialog__actions { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:var(--space-8); margin-top:var(--space-8); }
+.bf-alert-dialog__actions>.bf-button { width:100%; min-width:0; }
+.bf-banner { width: 100%; }
+.bf-toast-viewport { position: fixed; z-index: 70; right: var(--feedback-gap); bottom: var(--feedback-gap); width: min(26rem, calc(100% - 2 * var(--feedback-gap))); display: grid; gap: var(--feedback-gap); list-style: none; padding: 0; margin: 0; outline: none; }
+.bf-toast { display: flex; align-items: start; justify-content: space-between; gap: var(--feedback-gap); padding: var(--feedback-padding); background: var(--feedback-surface); color: var(--text-primary); border: 1px solid var(--feedback-border); border-radius: var(--feedback-radius); box-shadow: var(--feedback-shadow); font: var(--type-body); overflow-wrap: anywhere; animation-fill-mode: both; }
+.bf-toast[data-state="open"] { animation: bf-toast-in var(--duration-base) var(--ease-enter); }
+.bf-toast[data-state="closed"] { animation: bf-toast-out var(--duration-fast) var(--ease-exit); }
+.bf-toast[data-swipe="move"] { translate: var(--radix-toast-swipe-move-x) var(--radix-toast-swipe-move-y); }
+.bf-toast[data-swipe="cancel"] { translate: 0 0; transition: translate var(--duration-fast) var(--ease-standard); }
+.bf-toast[data-swipe="end"] { animation: bf-toast-swipe-out var(--duration-fast) var(--ease-exit); }
+.bf-toast > div { min-width: 0; }
+@keyframes bf-toast-in { from { opacity: 0; translate: 0 var(--motion-distance-sm); } to { opacity: 1; translate: 0 0; } }
+@keyframes bf-toast-out { from { opacity: 1; translate: 0 0; } to { opacity: 0; translate: 0 var(--motion-distance-sm); } }
+@keyframes bf-toast-swipe-out { from { opacity: 1; translate: var(--radix-toast-swipe-end-x) var(--radix-toast-swipe-end-y); } to { opacity: 0; translate: var(--radix-toast-swipe-end-x) var(--radix-toast-swipe-end-y); } }
+@media (prefers-reduced-motion: reduce) {
+  .bf-alert-dialog-overlay,
+  .bf-alert-dialog,
+  .bf-toast { animation: none !important; transition: none !important; }
+}
+@media(max-width:360px) { .bf-alert-dialog__actions { grid-template-columns:1fr; } }

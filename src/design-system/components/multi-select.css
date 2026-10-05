@@ -1,0 +1,26 @@
+.bf-multi-select { position: relative; display: grid; gap: var(--multi-select-gap); min-width: 0; align-content: start; font-family: var(--font-interface); }
+.bf-multi-select__label { font: var(--filter-label-font); text-transform: var(--heading-transform); }
+.bf-multi-select__control { display: flex; min-height: var(--control-target); align-items: center; gap: var(--multi-select-control-gap); padding: var(--multi-select-control-padding); border: var(--seam-width) solid var(--control-border); border-radius: var(--control-radius); background: var(--surface-panel); transition: border-color var(--motion-hover-duration) var(--ease-standard), background-color var(--motion-hover-duration) var(--ease-standard); }
+.bf-multi-select__control:focus-within { border-color: var(--focus-ring); box-shadow: inset 0 0 0 1px var(--focus-ring); }
+.bf-multi-select__control[data-disabled] { background: var(--surface-subtle); opacity: var(--disabled-opacity); }
+.bf-multi-select__value { display: flex; min-width: 0; flex: 1; flex-wrap: wrap; align-items: center; gap: var(--multi-select-value-gap); padding-inline-start: var(--space-8); color: var(--text-primary); font: var(--weight-regular) var(--text-control)/var(--line-height-control) var(--font-interface); }
+.bf-multi-select__trigger { display: grid; width: var(--control-target); height: var(--control-target); flex: 0 0 auto; place-items: center; padding: 0; border: 0; border-radius: var(--radius-micro); background: transparent; color: var(--text-primary); cursor: pointer; transition: background-color var(--motion-hover-duration) var(--ease-standard); }
+.bf-multi-select__trigger:hover { background: var(--surface-hover); }
+.bf-multi-select__trigger svg { transition: transform var(--motion-hover-duration) var(--ease-standard); }
+.bf-multi-select__trigger[aria-expanded="true"] svg { transform: rotate(180deg); }
+.bf-multi-select button:disabled { cursor: not-allowed; }
+.bf-multi-select small { color: var(--text-secondary); font-size: var(--text-xs); line-height: var(--line-height-xs); }
+.bf-multi-select__options { position: absolute; z-index: var(--overlay-z); inset: calc(100% - var(--space-13)) 0 auto; display: grid; gap: var(--multi-select-options-gap); margin: 0; padding: var(--multi-select-options-padding); border: var(--seam-width) solid var(--control-border); border-radius: var(--control-radius); background: var(--surface-panel); box-shadow: var(--overlay-shadow); animation: bf-multi-select-enter var(--motion-enter-duration) var(--ease-enter); }
+@keyframes bf-multi-select-enter { from { opacity: 0; translate: 0 calc(var(--motion-distance-sm) * -1); } to { opacity: 1; translate: 0 0; } }
+.bf-multi-select__legend { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.bf-multi-select__options label { display: flex; align-items: center; gap: var(--space-13); min-height: var(--control-target); padding: var(--space-8); font-size: var(--text-sm); cursor: pointer; }
+.bf-multi-select__options .bf-checkbox__label { font: var(--weight-regular) var(--text-sm)/var(--line-height-sm) var(--font-interface); text-transform: none; }
+.bf-multi-select__options label:has(input:checked) { background: var(--surface-subtle); border-radius: var(--radius-micro); }
+.bf-multi-select__options p { margin: var(--space-13); color: var(--text-secondary); font-size: var(--text-sm); }
+.bf-multi-select__clear { justify-self: start; min-height: var(--space-34); padding: var(--space-5) var(--space-8); border: 0; background: transparent; color: var(--text-action); font: var(--weight-semibold) var(--text-control)/var(--line-height-control) var(--font-display); text-transform: var(--heading-transform); cursor: pointer; }
+@media (prefers-reduced-motion: reduce) {
+  .bf-multi-select__control,
+  .bf-multi-select__trigger,
+  .bf-multi-select__trigger svg { transition: none; }
+  .bf-multi-select__options { animation: none; }
+}

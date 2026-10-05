@@ -1,0 +1,91 @@
+:root {
+  --color-white: #ffffff;
+  --color-ink-950: #111615;
+  --color-ink-900: #1b211f;
+  --color-ink-850: #222a27;
+  --color-ink-800: #28302e;
+  --color-ink-600: #5d6966;
+  --color-ink-450: #85908d;
+  --color-neutral-100: #f4f6f5;
+  --color-neutral-150: #eef1f0;
+  --color-neutral-250: #dce2df;
+  --color-action-start: #c2185b;
+  --color-action-end: #8b1a75;
+  --color-pink-500: #ff4fa3;
+  --color-magenta-600: #c828ff;
+  --color-pink-750: #c2185b;
+  --color-magenta-800: #8b1a75;
+  --color-amber-700: #8a560f;
+  --color-amber-100: #fff1d9;
+  --color-red-700: #a93636;
+  --color-red-100: #fee9e7;
+  --color-green-700: #23664f;
+  --color-green-100: #e2f5ec;
+
+  --space-0: 0;
+  --space-3: 3px;
+  --space-5: 5px;
+  --space-8: 8px;
+  --space-13: 13px;
+  --space-21: 21px;
+  --space-34: 34px;
+  --space-55: 55px;
+
+  /* Temporary aliases keep the existing demos intact while they move to role tokens. */
+  --space-1: var(--space-3);
+  --space-2: var(--space-8);
+  --space-4: var(--space-13);
+  --space-6: var(--space-21);
+  --space-12: var(--space-55);
+
+  --radius-5: 5px;
+  --radius-8: 8px;
+  --radius-13: 13px;
+  --radius-21: 21px;
+  --radius-pill: 999px;
+
+  --text-xs: 12px;
+  --text-sm: 13px;
+  --text-control: 14px;
+  --text-base: 15px;
+  --text-card: 18px;
+  --text-section: 28px;
+  --text-page: 34px;
+  --line-height-xs: 17px;
+  --line-height-sm: 18px;
+  --line-height-control: 20px;
+  --line-height-base: 23px;
+  --line-height-card: 24px;
+  --line-height-section: 32px;
+  --line-height-page: 36px;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: var(--weight-semibold);
+  --tracking-ui: .015em;
+  --tracking-data: .02em;
+  --icon-stroke: 2;
+  --icon-stroke-light: 1.75;
+
+  --duration-fast: 120ms;
+  --duration-base: 180ms;
+  --duration-slow: 240ms;
+  --ease-standard: cubic-bezier(.2, .8, .2, 1);
+  --ease-enter: cubic-bezier(.2, .8, .2, 1);
+  --ease-exit: cubic-bezier(.4, 0, 1, 1);
+
+  --cut-8: 8px;
+  --cut-13: 13px;
+  --cut-21: 21px;
+
+  --shadow-float: 0 12px 36px rgb(17 22 21 / 12%);
+  --shadow-thumb: 0 1px 2px rgb(17 22 21 / 18%);
+  --font-brand: "Archivo Narrow Variable", "Archivo Narrow", ui-sans-serif, sans-serif;
+  --font-data: "JetBrains Mono Variable", "JetBrains Mono", ui-monospace, monospace;
+  --font-human: var(--font-brand);
+  --font-display: var(--font-human);
+  --font-interface: var(--font-human);
+  --font-body: var(--font-human);
+  --font-ui: var(--font-human);
+  --font-condensed: var(--font-human);
+}

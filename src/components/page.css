@@ -1,0 +1,13 @@
+.bf-page-frame {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  padding: var(--space-34);
+}
+
+@media (max-width: 767px) {
+  .bf-page-frame {
+    padding: var(--space-21) var(--space-13);
+  }
+}
